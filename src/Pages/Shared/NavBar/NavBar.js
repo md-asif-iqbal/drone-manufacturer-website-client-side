@@ -1,37 +1,45 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const NavBar = () => {
-
+ const [user] = useAuthState(auth);
+ const logout = () =>{
+   signOut(auth);
+   localStorage.removeItem('accessToken');
+ }
     const menuItems = <>
   
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/" >Home</Link></li>
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/parts" >Parts</Link></li>
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/about" >About</Link></li>
-    <li className=' font-medium text-gray-500 hover:text-gray-900'><Link  to="/contact" >Contact Us</Link></li>
-    <li className=' font-medium text-indigo-600 hover:text-indigo-500'><Link to="/login" >Login</Link></li>
-    
+    <li className=' font-medium text-gray-500 hover:text-gray-900'><Link  to="/contact" >Contact</Link></li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
     </>
+    
     return (
-        <div class="navbar   bg-white relative">
-              <div class="navbar-start">
-                <div class="dropdown">
-                  <label tabindex="0" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        <div className="navbar   bg-white relative">
+              <div className="navbar-start">
+                <div className="dropdown">
+                  <label tabindex="0" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                   </label>
-                  <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                  <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                   {menuItems}
                   </ul>
                 </div>
-                <img alt="Workflow" class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/><span></span>
+                <img alt="Workflow" className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/><span className='ml-5 font-medium'>DRONE Manufacture</span>
               </div>
-              <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal p-0 ">
+              <div className="navbar-center ">
+                
+              </div>
+              <div className="navbar-end">
+              {/* write here something */}
+              <ul className="menu menu-horizontal hidden lg:flex p-0 mx-9 ">
                   {menuItems}
                 </ul>
-              </div>
-              <div class="navbar-end">
-              {/* write here something */}
               </div>
         </div>
     );

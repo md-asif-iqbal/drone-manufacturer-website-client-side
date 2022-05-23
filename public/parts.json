@@ -1,0 +1,124 @@
+[
+    {
+        "name":"Standard Prop",
+        "img":"https://m.media-amazon.com/images/I/51qTdI-u0VL._AC_SX679_.jpg",
+        "description":"While some drones like the DJI Phantom look more or less the same from any angle, there is a front and back",
+        "min":80 ,
+        "stock":10000,
+        "price":10
+    },
+    {
+        "Name":"Pusher Prop",
+        "img":"https://m.media-amazon.com/images/I/51S8fq05eWL._AC_SX679_.jpg",
+        "description":"The Pusher props are at the back and push theUAV forward hence the name “Pusher props”.",
+        "min":80 ,
+        "stock":8000,
+        "price": 32
+    },
+    {
+        "Name":"Brushless Motors",
+        "img":"https://m.media-amazon.com/images/I/61sMZfR-7+L._AC_SX679_.jpg",
+        "description":"Motor design is important. More efficient motors save battery life and give the owner more flying time which is what every pilot wants",
+        "min":80,
+        "stock":8000,
+        "price":70
+    },
+    {
+        "Name":"Motor Mount",
+        "img":"https://m.media-amazon.com/images/I/51Q7v+ybsML._AC_SX679_.jpg",
+        "description":"The drone motor mount is made of aluminum alloy, which is durable and can love you to goose lake for a long time.",
+        "min":80,
+        "stock":9000,
+        "price":12
+    },
+    {
+        "Name":"Landing Gear",
+        "img":"https://m.media-amazon.com/images/I/51XOeIN5KoL._AC_SX679_.jpg",
+        "description":"Drones which need high ground clearance may adopt helicopter-style skids mounted directly to the body, while other drones which have no hanging payload may omit landing gear altogether",
+        "min":80,
+        "stock":10000,
+        "price": 21
+    },
+    {
+        "Name":"Boom",
+        "img":"https://m.media-amazon.com/images/I/31+YO9XaW8L._AC_.jpg",
+        "description":"Shorter booms increase maneuverability, while longer booms increase stability",
+        "min":80,
+        "stock":9000,
+        "price": 94
+    },
+    {
+        "Name":"Drone Frame",
+        "img":"https://m.media-amazon.com/images/I/31KiMbbnTSL._AC_.jpg",
+        "description":"The sturdy material has good impact resistance and can withstand the impact of a hard landing",
+        "min":80,
+        "stock":9000,
+        "price":39
+    },
+    {
+        "Name":"Electronic Speed Controllers",
+        "img":"https://m.media-amazon.com/images/I/614jYuwW3qL._AC_SX679_.jpg",
+        "description":"Made of high quality aluminum alloy heat dissipation, waterproof and dustproof, long service life.",
+        "min":80,
+        "stock":10000,
+        "price": 27
+    },
+    {
+        "Name":"Flight Controller",
+        "img":"https://m.media-amazon.com/images/I/61FXiBcOWHL._AC_SX679_.jpg",
+        "description":"Has small size and light weight, close fitting, simple for installation and removal, will not take much effort or time, improving your using experience",
+        "min":80,
+        "stock":9000,
+        "price":62
+    },
+    {
+        "Name":"GPS Module",
+        "img":"https://m.media-amazon.com/images/I/51RBaly4nGL._AC_SX679_.jpg",
+        "description":"BN-880 Flight Control GPS Module Dual Module Compass with Cable for RC Drone FPV Racing.",
+        "min":50,
+        "stock":7000,
+        "price":140
+    },
+    {
+        "Name":"Drone Receiver",
+        "img":"https://m.media-amazon.com/images/I/61OzJGj9vxS._AC_SX679_.jpg",
+        "description":"It is suitable for the installation of miniature brushless and hollow cup indoor quadcopter. Bring a great gaming experience.",
+        "min":80,
+        "stock":9000,
+        "price":18
+    },
+    {
+        "Name":"Drone Antenna",
+        "img":"https://m.media-amazon.com/images/I/51z2A+e3YtL._AC_SX679_.jpg",
+        "description":"Depending on your receiver, it may be a loose wire whip or helical “rubber ducky” type.",
+        "min":80,
+        "stock":9000,
+        "price":14
+    },
+    {
+        "Name":"Drone Battery",
+        "img":"https://m.media-amazon.com/images/I/71V4dUJyhRL._AC_SX679_.jpg",
+        "description":"Material:Lithium polymer;Capacity:1500mAh;Configuration:6S1P;Voltage:22.2V;Discharge rate:120C;Plug:XT60",
+        "min":60,
+        "stock":9000,
+        "price":62
+    },
+    {
+        "Name":"Drone Monitor",
+        "img":"https://m.media-amazon.com/images/I/61O3UQLaS+L._AC_SX679_.jpg",
+        "description":"Record FPV footage with the integrated built in DVR,In outdoor flight, your drone is flying fast as a bird in the sky. You need keep an eye on it to assure its safely.",
+        "min":50,
+        "stock":9000,
+        "price":292
+    },
+    {
+        "Name":"Drone O.Gimbal",
+        "img":"https://m.media-amazon.com/images/I/51lwUQ18iKL._AC_SL1500_.jpg",
+        "description":"The intelligent flight modes enable the drone to fly automatically, such as GPS follow me, Waypoint flight, Point of Interest flight, Trajectory Flight, allow you to enjoy the creative fun of free flight.",
+        "min":40,
+        "stock":9000,
+        "price":475
+    }
+    
+    
+]

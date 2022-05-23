@@ -5,6 +5,8 @@ import Home from './Pages/Home/Home/Home';
 import NavBar from './Pages/Shared/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Pages/LoginSites/Login';
+import SignUp from './Pages/LoginSites/SignUp';
+import Footer from './Pages/Shared/Footer/Footer';
 
 
 
@@ -15,9 +17,10 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/signup' element={<Login/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>
-     
+     <Footer></Footer>
     </div>
   );
 }

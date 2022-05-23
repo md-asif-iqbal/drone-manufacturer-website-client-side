@@ -23,6 +23,7 @@ const Login = () => {
     useEffect( () =>{
         if (token) {
             navigate(from, { replace: true });
+            console.log(token);
         }
     }, [user, gUser, from, navigate])
 
@@ -31,10 +32,11 @@ const Login = () => {
     }
 
     if(error || gError){
-        signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
+        signInError= <p className='text-red-600'><small>{error?.message || gError?.message }</small></p>
     }
 
     const onSubmit = data => {
+
         signInWithEmailAndPassword(data.email, data.password);
     }
     return (
@@ -43,6 +45,13 @@ const Login = () => {
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
+                    
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className="btn btn-outline"
+                    >Continue with Google</button>
+                    <div className="divider">OR</div>
+
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control w-full max-w-xs">
@@ -75,7 +84,7 @@ const Login = () => {
                             </label>
                             <input
                                 type="password"
-                                placeholder="Password"
+                                placeholder="What's the secret word ?"
                                 className="input input-bordered w-full max-w-xs"
                                 {...register("password", {
                                     required: {
@@ -98,11 +107,7 @@ const Login = () => {
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
                     <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
-                    <div className="divider">OR</div>
-                    <button
-                        onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
-                    >Continue with Google</button>
+                    
                 </div>
             </div>
         </div >
