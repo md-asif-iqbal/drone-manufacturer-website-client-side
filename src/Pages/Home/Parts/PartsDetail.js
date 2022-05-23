@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const PartsDetail = ({part}) => {
-    const { Name, img , price  ,description , min , stock} = part;
-    console.log(part);
+const PartsDetail = ({part , setProduct}) => {
+    const navigate = useNavigate();
+    const { Name, img , price  ,description , min , stock ,_id} = part;
+    console.log(stock);
+    // const navigatePart = id =>{
+    //     navigate(`/purchase/${id}`)
+    // }
     return (
-    //     object-fit: cover ; /* Do not scale the image */
-    // object-position: center; /* Center the image within the element */
-    // height: 30vh;
-    // width: 100%;
+  
         <div>
             <div className="card lg:max-w-lg bg-white shadow-xl ">
             <figure><img src={img} className='object-scale-down w-full h-60 px-5 py-5' alt="" /></figure>
@@ -23,7 +25,9 @@ const PartsDetail = ({part}) => {
                     <p className=''>Stock : <span className='font-bold'>{stock}</span></p>
                 </div>
                 <div className="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+                <button disabled={stock.length === 0}
+                        onClick={() => setProduct(part)}
+                 class="btn btn-primary">Buy Now</button>
                 </div>
             </div>
             </div>

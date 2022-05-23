@@ -7,6 +7,8 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Pages/LoginSites/Login';
 import SignUp from './Pages/LoginSites/SignUp';
 import Footer from './Pages/Shared/Footer/Footer';
+import Purchase from './Pages/Private/Purchase/Purchase';
+import RequireAuth from './Pages/LoginSites/RequireAuth';
 
 
 
@@ -17,10 +19,13 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/purchase/:id' element={<RequireAuth>
+          <Purchase></Purchase>
+        </RequireAuth>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>
-     <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }

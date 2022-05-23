@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import Purchase from '../../Private/Purchase/Purchase';
 import Loading from '../../Shared/Loading/Loading';
 import PartsDetail from './PartsDetail';
 
 const Parts = () => {
+  const [product , setProduct] = useState(null);
     const {data: parts, isLoading , refetch } = useQuery(['parts'] , ()=> fetch(`http://localhost:8000/parts`)
     .then(res => res.json()))
     if(isLoading){
         return <Loading></Loading>
     }
-    console.log(parts);
     return (
         <div className='my-10 '>
             <h1 className='text-5xl mt-5 '>Hello :</h1>
@@ -17,9 +18,16 @@ const Parts = () => {
                     {parts.slice(0,6).map(part => <PartsDetail 
                     key={part._id}
                     part = {part}>
+                      setProduct={setProduct}
                     </PartsDetail>
                     )}
+                    
             </div>
+            { product && <Purchase>
+                 product={product}
+                 setProduct={setProduct}
+                 refetch = {refetch}
+              </Purchase>}
         </div>
     );
 };

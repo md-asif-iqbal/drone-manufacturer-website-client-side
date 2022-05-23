@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
 import useToken from '../../Hooks/useToken';
+import Loading from '../Shared/Loading/Loading';
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -21,14 +22,18 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect( () =>{
-        if (token) {
+        // if (token) {
+        //     navigate(from, { replace: true });
+        //     console.log(token);
+        // }
+        if (user) {
             navigate(from, { replace: true });
             console.log(token);
         }
     }, [user, gUser, from, navigate])
 
     if (loading || gLoading) {
-        
+        return <Loading></Loading>
     }
 
     if(error || gError){
@@ -41,7 +46,7 @@ const Login = () => {
     }
     return (
         <>
-             <div className='flex h-screen justify-center items-center'>
+             <div className='flex h-screen justify-center items-center mb-8'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
