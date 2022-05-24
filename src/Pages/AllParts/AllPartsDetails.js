@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const PartsDetail = ({part , refetch}) => {
+const AllPartsDetails = ({part , refetch}) => {
     const navigate = useNavigate();
     const { Name, img , price  ,description , min , stock ,_id} = part;
     const navigatePart = id =>{
-
+        
         navigate(`/purchase/${id}`)
         refetch();
     }
@@ -39,5 +39,4 @@ const PartsDetail = ({part , refetch}) => {
     );
 };
 
-export default PartsDetail;
-
+export default AllPartsDetails;

@@ -9,6 +9,8 @@ import SignUp from './Pages/LoginSites/SignUp';
 import Footer from './Pages/Shared/Footer/Footer';
 import Purchase from './Pages/Private/Purchase/Purchase';
 import RequireAuth from './Pages/LoginSites/RequireAuth';
+import Parts from './Pages/Home/Parts/Parts';
+import AllParts from './Pages/AllParts/AllParts';
 
 
 
@@ -19,6 +21,7 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/allParts' element={<AllParts></AllParts>}></Route>
         <Route path='/purchase/:id' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
