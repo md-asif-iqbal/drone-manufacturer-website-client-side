@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const PartsDetail = ({part , setProduct}) => {
+const PartsDetail = ({part , refetch}) => {
     const navigate = useNavigate();
     const { Name, img , price  ,description , min , stock ,_id} = part;
     console.log(stock);
-    // const navigatePart = id =>{
-    //     navigate(`/purchase/${id}`)
-    // }
+    const navigatePart = id =>{
+        console.log(id);
+        console.log(part);
+        navigate(`/purchase/${id}`)
+        // refetch();
+    }
     return (
   
         <div>
@@ -25,9 +28,12 @@ const PartsDetail = ({part , setProduct}) => {
                     <p className=''>Stock : <span className='font-bold'>{stock}</span></p>
                 </div>
                 <div className="card-actions justify-end">
+                
                 <button disabled={stock.length === 0}
-                        onClick={() => setProduct(part)}
-                 class="btn btn-primary">Buy Now</button>
+                        onClick={() => navigatePart(_id)}
+                 className="btn btn-primary">Buy Now</button>
+                
+               
                 </div>
             </div>
             </div>

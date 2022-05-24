@@ -5,7 +5,7 @@ import Loading from '../../Shared/Loading/Loading';
 import PartsDetail from './PartsDetail';
 
 const Parts = () => {
-  const [product , setProduct] = useState(null);
+
     const {data: parts, isLoading , refetch } = useQuery(['parts'] , ()=> fetch(`http://localhost:8000/parts`)
     .then(res => res.json()))
     if(isLoading){
@@ -17,17 +17,14 @@ const Parts = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 '>
                     {parts.slice(0,6).map(part => <PartsDetail 
                     key={part._id}
-                    part = {part}>
-                      setProduct={setProduct}
+                    part = {part}
+                    refetch = {refetch}
+                    >
                     </PartsDetail>
                     )}
                     
             </div>
-            { product && <Purchase>
-                 product={product}
-                 setProduct={setProduct}
-                 refetch = {refetch}
-              </Purchase>}
+           
         </div>
     );
 };
