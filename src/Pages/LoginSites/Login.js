@@ -15,21 +15,18 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-     const[token] = useToken(user ||gUser)
+     const[token] = useToken(user || gUser)
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-
+    console.log(token);
     useEffect( () =>{
-        // if (token) {
-        //     navigate(from, { replace: true });
-        //     console.log(token);
-        // }
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
             console.log(token);
         }
+       
     }, [user, gUser, from, navigate])
 
     if (loading || gLoading) {

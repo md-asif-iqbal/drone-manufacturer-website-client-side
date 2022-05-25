@@ -1,14 +1,17 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const NavBar = () => {
  const [user] = useAuthState(auth);
+ const navigate = useNavigate();
  const logout = () =>{
    signOut(auth);
+    navigate('/login')
    localStorage.removeItem('accessToken');
+
  }
     const menuItems = <>
   
@@ -37,11 +40,14 @@ const NavBar = () => {
                 <img alt="Workflow" className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/><span className='ml-5 font-medium'>DRONE Manufacture</span>
               </div>
               <div className="navbar-center ">
-                
+              
               </div>
               <div className="navbar-end">
               {/* write here something */}
-              <ul className="menu menu-horizontal hidden lg:flex p-0 mx-9 ">
+              <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+                <ul className="menu menu-horizontal hidden lg:flex p-0 mx-9 ">
                   {menuItems}
                 </ul>
               </div>

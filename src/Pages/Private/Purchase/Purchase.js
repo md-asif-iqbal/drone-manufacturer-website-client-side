@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import usePartId from '../../../Hooks/usePartId';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -7,8 +7,10 @@ import { useForm } from 'react-hook-form';
 import { async } from '@firebase/util';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
+import Loading from '../../Shared/Loading/Loading';
 const Purchase = () => {
-    const { register, formState: { errors }, handleSubmit  } = useForm();
+    const { register, formState: { errors }, handleSubmit ,  } = useForm();
+    const nevigate = useNavigate();
     const [prices , setPrices] = useState();
     const [quant , setQuant] = useState();
     const {id} =useParams();
@@ -27,6 +29,7 @@ const Purchase = () => {
             purchaseId:_id,
             purchaseName:Name,
             purchaseQuantity:piece,
+            image:img,
             buyer:name,
             buyerEmail: email,
             buyerNumber:number,
@@ -47,7 +50,9 @@ const Purchase = () => {
                     
                     toast.success('Your Order Is confirm pls Pay');
                     event.target.reset();
+    
                 }
+                
                 else{
                     toast.error('sorry your order is not ready please check your order');
                 }
@@ -58,7 +63,7 @@ const Purchase = () => {
             fetch(url , {
                 method: 'PUT',
                 headers: {
-                    'content-type':'application/json'
+                    'content-type':'application/json',
                 },
                 body: JSON.stringify({newStock}),
             })
