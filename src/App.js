@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Banner from './Pages/Home/Banner/Banner';
 import Home from './Pages/Home/Home/Home';
 import NavBar from './Pages/Shared/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
@@ -12,6 +11,10 @@ import RequireAuth from './Pages/LoginSites/RequireAuth';
 import Parts from './Pages/Home/Parts/Parts';
 import AllParts from './Pages/AllParts/AllParts';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import DashBoard from './Pages/DashBoard/DashBoard';
+import MyOrders from './Pages/DashBoard/MyOrders';
+import AddReviews from './Pages/DashBoard/AddReviews';
+import MyProfiles from './Pages/DashBoard/MyProfiles';
 
 
 
@@ -26,6 +29,13 @@ function App() {
         <Route path='/purchase/:id' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth>
+          <DashBoard/> </RequireAuth> 
+          }>
+          <Route index element={<MyOrders/>}/>
+          <Route path='addReviews' element={<AddReviews/>}/>
+          <Route path='myProfiles' element={<MyProfiles/>}/>
+        </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
