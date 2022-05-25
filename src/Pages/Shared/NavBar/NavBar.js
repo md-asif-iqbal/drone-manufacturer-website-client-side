@@ -14,9 +14,13 @@ const NavBar = () => {
   
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/" >Home</Link></li>
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/allParts" >Parts</Link></li>
+    {
+        user && <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/dashboard">Dashboard</Link></li>
+    }
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/about" >About</Link></li>
     <li className=' font-medium text-gray-500 hover:text-gray-900'><Link  to="/contact" >Contact</Link></li>
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+    
+        <li>{user ? <button className= " btn btn-ghost font-medium text-gray-500 hover:bg-teal-300  hover:text-gray-700 hover:font-bold" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
     </>
     
     return (

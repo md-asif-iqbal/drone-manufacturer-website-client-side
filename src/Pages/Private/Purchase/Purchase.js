@@ -10,6 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const Purchase = () => {
     const { register, formState: { errors }, handleSubmit  } = useForm();
     const [prices , setPrices] = useState();
+    const [quant , setQuant] = useState();
     const {id} =useParams();
     const [user , email] = useAuthState(auth);
     // console.log(user.displayName);
@@ -70,13 +71,25 @@ const Purchase = () => {
     }
 
 
-
+let errorElement;
 
  const validate = (value) => {
+     
         const newValue = parseInt(value);
+        setQuant(newValue)
         const totalPrice = parseInt(price*newValue);
         setPrices(totalPrice);
         // console.log('Validating Here!' , totalPrice);
+       }
+       if(quant< minimum){
+        errorElement= 
+            <span className="label-text-alt text-red-500">Minimum Order is ${minimum}</span>
+        
+       }
+       if(quant>= stock){
+        errorElement= 
+            <span className="label-text-alt text-red-500">Maximum Order  is ${stock}</span>
+        
        }
     return (
     <div>
@@ -151,7 +164,9 @@ const Purchase = () => {
                                 {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
                                 {errors.quantity?.type === 'min' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
                                 {errors.quantity?.type === 'max' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                {errorElement}
                             </label>
+                            
                                 </div>
                     </div>
                     <div className="custom-number-input h-10 w-full">
@@ -229,6 +244,7 @@ const Purchase = () => {
                         />
                         
                         <label className="label">
+            
                             {errors.number?.type === 'required' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
                             {errors.number?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.number.message}</span>}
                         </label>
@@ -257,7 +273,7 @@ const Purchase = () => {
                     </div>
 
 
-                    <input className='btn w-full border-0 bg-red-500 max-w-xs text-white' type="submit" value="Order Confirm" />
+                    <input disabled={ quant<minimum || quant >= stock} className='btn w-full border-0 bg-red-500 max-w-xs text-white' type="submit" value="Order Confirm" />
                     <ToastContainer />
                 </form>
             </div>

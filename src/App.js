@@ -11,6 +11,7 @@ import Purchase from './Pages/Private/Purchase/Purchase';
 import RequireAuth from './Pages/LoginSites/RequireAuth';
 import Parts from './Pages/Home/Parts/Parts';
 import AllParts from './Pages/AllParts/AllParts';
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
