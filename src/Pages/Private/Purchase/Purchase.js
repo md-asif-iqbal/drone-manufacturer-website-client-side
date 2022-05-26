@@ -57,22 +57,22 @@ const Purchase = () => {
                     toast.error('sorry your order is not ready please check your order');
                 }
             })
-            const newStock = stock-piece;
+          
             // console.log(newStock);
-            const url = `http://localhost:8000/parts/${id}`
-            fetch(url , {
-                method: 'PUT',
-                headers: {
-                    'content-type':'application/json',
-                },
-                body: JSON.stringify({newStock}),
-            })
-            .then(res=> res.json())
-            .then(result =>{
-                console.log(result);
-                event.target.reset();
+    //         const url = `http://localhost:8000/parts/${id}`
+    //         fetch(url , {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'content-type':'application/json',
+    //             },
+    //             body: JSON.stringify({newStock}),
+    //         })
+    //         .then(res=> res.json())
+    //         .then(result =>{
+    //             console.log(result);
+    //             event.target.reset();
                 
-            }) 
+    //         }) 
     }
 
 

@@ -6,7 +6,6 @@ import ReviewDetails from './ReviewDetails';
 const Rating = () => {
     const {data: review, isLoading , refetch } = useQuery(['review'] , ()=> fetch(`http://localhost:8000/reviews`)
     .then(res => res.json()))
-    console.log(review);
     if(isLoading){
         return <Loading></Loading>
     }

@@ -15,6 +15,7 @@ import DashBoard from './Pages/DashBoard/DashBoard';
 import MyOrders from './Pages/DashBoard/MyOrders';
 import AddReviews from './Pages/DashBoard/AddReviews';
 import MyProfiles from './Pages/DashBoard/MyProfiles';
+import Payments from './Pages/DashBoard/Payments';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<MyOrders/>}/>
           <Route path='addReviews' element={<AddReviews/>}/>
           <Route path='myProfiles' element={<MyProfiles/>}/>
+          <Route path='payment/:id' element={<Payments/>}/>
         </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
