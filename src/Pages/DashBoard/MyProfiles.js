@@ -109,7 +109,7 @@ console.log(man);
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{user.displayName}</h2>
-                    <p>{man.email}</p>
+                    <p>{user.email}</p>
                     <p>{man.number}</p>
                     <p>{man.education}</p>
                     <p> {man.location}</p>

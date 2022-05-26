@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
-
+import auth from '../../firebase.init';
+import useAdmin from '../../Hooks/useAdmin';
 const DashBoard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+    console.log(admin);
     return (
         
         <div className="drawer drawer-mobile">
@@ -14,15 +19,24 @@ const DashBoard = () => {
             <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
             <ul className="menu p-4 overflow-y-auto w-50 bg-base-200 rounded text-base-content">
                 {/* <!-- Sidebar content here --> */}
-                <li><Link to="/dashboard">My Orders</Link></li>
-                <li><Link to="/dashboard/addReviews">Add a Reviews</Link></li>
-                <li><Link to="/dashboard/myProfiles">My Profiles</Link></li>
+                {
+                    !admin && <>
+                    
+                    <li><Link to="/dashboard/myOrders">My Orders</Link></li>
+                    <li><Link to="/dashboard/addReviews">Add a Reviews</Link></li>
+                    </>
+                }
+                <li><Link to="/dashboard">My Profiles</Link></li>
                 {/* admin role only */}
-                <li><Link to="/dashboard/manageAllOrder">Manage All Orders</Link></li>
-                <li><Link to="/dashboard/addProduct">Add A Product</Link></li>
-                <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
-                <li><Link to="/dashboard/manageProducts">Manage Products</Link></li>
+                {
+                    admin && <>
+                    <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
+                    <li><Link to="/dashboard/manageOrder">Manage All Orders</Link></li>
+                    <li><Link to="/dashboard/addProduct">Add A Product</Link></li>
+                    <li><Link to="/dashboard/manageProducts">Manage Products</Link></li>
                 
+                    </>
+                }
                 
             </ul>
 

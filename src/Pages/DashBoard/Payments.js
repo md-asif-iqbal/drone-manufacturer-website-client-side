@@ -24,11 +24,17 @@ const Payments = () => {
     return (
         <div>
             <h4>hello :{id}</h4>
-            <div>
+            <div className=''>
             <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
                 <div class="card-body">
                     <p className="text-success text-2xl font-bold">Hello, {order.buyer}</p>
-                    <h2 class="card-title text-xl mx-auto ">Please Pay for {order.purchaseName}</h2>
+                    <div class="avatar mx-auto">
+                        <div class="w-32 mask mask-squircle">
+                            <img src={order.image} />
+                        </div>
+                        </div>
+                    <h2 class="card-title text-xl mx-auto ">Pay for {order.purchaseName}</h2>
+            
                     <p>Your Quantity: <span className='text-orange-700'>{order.purchaseQuantity}</span></p>
                     <p>Please pay: ${order.totalPrice}</p>
                 </div>

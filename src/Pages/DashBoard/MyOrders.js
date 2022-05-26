@@ -34,8 +34,7 @@ const MyOrders = () => {
     }, [user]);
 
     const handleCencelOrder = id =>{
-        const proceed = window.confirm('Are you sure Delete this Items?');
-        if(proceed){
+        
             const url =`http://localhost:8000/purchase/${id}`;
             fetch(url, {
                 method: 'DELETE'
@@ -46,7 +45,7 @@ const MyOrders = () => {
 
                 
             })
-        }
+        
     }
    
     return (
@@ -62,7 +61,7 @@ const MyOrders = () => {
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Payment</th>
-                            <th>Cencel</th>
+                            <th>Cencel Product</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,16 +79,31 @@ const MyOrders = () => {
                                 <td>{p.purchaseQuantity}</td>
                                 <td>{p.totalPrice}</td>
                                 <td>{(p.totalPrice && !p.paid) && <Link to={`/dashboard/payment/${p._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                                {(p.price && p.paid) && <span className='text-success'>paid</span>}
+                                {(p.totalPrice && p.paid) && <span className='text-success font-bold'>paid</span>}
                                 </td>
                                 <td>
-                                
-                                    
-                                    <button className='btn btn-xs btn-error' onClick={()=>handleCencelOrder(p._id)}>Cencel</button>
-                                
+                                    {/*  */}
+                                    {(p.totalPrice && !p.paid) && <label htmlFor="my-modal-6" class="btn btn-xs btn-error" >Cancel</label>}
+                                    {(p.totalPrice && p.paid) && <button className='btn btn-xs btn-error' disabled>Cancel</button>}
                                 </td>
+                                <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                            <div class="modal modal-bottom sm:modal-middle">
+                            <div class="modal-box">
+                            <div class="avatar">
+                                <div class="w-24 rounded">
+                                    <img src={p.image} />
+                                </div>
+                                </div>
+                                <h3 class="font-bold text-lg"> Are You sure delete {p.purchaseName} this item!</h3>
+                                <div class="modal-action">
+                                <label for="my-modal-6" class="btn btn-error" onClick={()=>handleCencelOrder(p._id)}>Confirm</label>
+                                <label for="my-modal-6" class="btn bg-blue-600">withdrow</label>
+                                </div>
+                            </div>
+                        </div>
                             </tr>)
                         }
+                        
                         
                         
                     </tbody>

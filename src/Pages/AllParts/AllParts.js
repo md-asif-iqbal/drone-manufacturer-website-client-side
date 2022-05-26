@@ -4,9 +4,13 @@ import Loading from '../Shared/Loading/Loading';
 import AllPartsDetails from './AllPartsDetails';
 
 const AllParts = () => {
-    const {data: allParts, isLoading , refetch } = useQuery(['parts'] , ()=> fetch(`http://localhost:8000/parts`)
-    .then(res => res.json()))
-    console.log(allParts);
+    const url = `http://localhost:8000/parts`;
+    const { data: allParts, isLoading , refetch } = useQuery(['allparts'], () => fetch(url, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
     if(isLoading){
         return <Loading></Loading>
     }
