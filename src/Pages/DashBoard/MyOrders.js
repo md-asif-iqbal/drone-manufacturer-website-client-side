@@ -1,39 +1,41 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const MyOrders = () => {
     const navigate = useNavigate()
-    const [orders, setOrders ] = useState([]);
+    // const [orders, setOrders ] = useState([]);
     const [deletes , setDeletes] = useState(null);
     const [user] = useAuthState(auth);
-    
-    
-    useEffect(() => {
-        if (user) {
-            fetch(`https://fathomless-escarpment-10744.herokuapp.com/purchase?buyerEmail=${user.email}` ,{
+
+    const url = `https://fathomless-escarpment-10744.herokuapp.com/purchase?buyerEmail=${user.email}`;
+            const { data: orders, isLoading , refetch } = useQuery(['orders'], () => fetch(url ,{
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
-            })
-            .then(res => {
-     
+            }).then(res => {
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
                     localStorage.removeItem('accessToken');
                     navigate('/');
                 }
-                return res.json()
-            })
-                .then(data => setOrders(data));
-        }
+                return res.json();
+            }));
+          
 
-    }, [user]);
-    const id= deletes?._id;
+        if(isLoading){
+            return<Loading></Loading>
+        }
+  
+
+
+    const id = deletes?._id;
     const handleCencelOrder = () =>{
         
         console.log('yes');
@@ -47,7 +49,7 @@ const MyOrders = () => {
         .then(res => res.json())
         .then(data => {
             toast('Your Order is Cenceled');
-
+            refetch()
             
         })
            
@@ -89,7 +91,7 @@ const MyOrders = () => {
                                 </td>
                                 <td>
                                     {/*  */}
-                                    {(p.totalPrice && !p.paid) && <label onClick={() => setDeletes(p)} htmlFor="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>}
+                                    {(p.totalPrice && !p.paid) && <label onClick={() => setDeletes(p)} htmlFor="delete-confirm-modal" className="btn btn-xs btn-error">Cencle</label>}
                 
                                 </td>
                                 <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
