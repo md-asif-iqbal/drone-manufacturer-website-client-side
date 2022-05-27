@@ -322,21 +322,3 @@ console.log(man);
 };
 
 export default MyProfiles;
-{/* <div className="form-control w-full max-w-xs mx-auto ">
-                                <label className="label">
-                                    <span className="label-text">Write Down Your Review</span>
-                                </label>
-                                <textarea className="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="Enter your review"  rows="5" cols="40"
-                                typeof='text'
-                                {...register("review", {
-                                    required: {
-                                        value: true,
-                                        message: 'Review is Required'
-                                    }
-                                })}
-                                ></textarea>
-                                <label className="label">
-                                    {errors.review?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                                </label>
-                            </div> */}

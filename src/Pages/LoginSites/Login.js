@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
 import useToken from '../../Hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -41,6 +42,7 @@ const Login = () => {
 
         signInWithEmailAndPassword(data.email, data.password);
     }
+
     return (
         <>
              <div className='flex h-screen justify-center items-center mb-8'>

@@ -104,8 +104,8 @@ const MyOrders = () => {
                                             </div>
                                 <h3 className="font-bold text-lg"> Are You sure delete {deletes?.purchaseName} this item!</h3>
                                 <div className="modal-action">
-                                <label htmlFor="delete-confirm-modal" className="btn btn-error" onClick={() =>handleCencelOrder()}>Confirm</label>
-                                <label htmlFor="delete-confirm-modal" className="btn bg-blue-600">withdrow</label>
+                                    <label htmlFor="delete-confirm-modal" className="btn bg-red-500" onClick={() =>handleCencelOrder()}>Confirm</label>
+                                    <label htmlFor="delete-confirm-modal" className="btn bg-blue-600">withdrow</label>
                                 </div>
                             </div>
                         </div>
