@@ -34,7 +34,7 @@ const AddProduct = () => {
                     price: price
                     
                 }
-                fetch('http://localhost:8000/parts', {
+                fetch('https://fathomless-escarpment-10744.herokuapp.com/parts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

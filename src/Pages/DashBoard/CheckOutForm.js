@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, totalPrice, buyerEmail, purchaseName } = order;
 
     useEffect(() => {
-        fetch('http://localhost:8000/create-payment-intent', {
+        fetch('https://fathomless-escarpment-10744.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({ order }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:8000/purchase/${_id}`, {
+            fetch(`https://fathomless-escarpment-10744.herokuapp.com/purchase/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

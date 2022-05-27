@@ -4,7 +4,7 @@ import Loading from '../../Shared/Loading/Loading';
 import AdminUsersRow from './AdminUsersRow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:8000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://fathomless-escarpment-10744.herokuapp.com/user', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

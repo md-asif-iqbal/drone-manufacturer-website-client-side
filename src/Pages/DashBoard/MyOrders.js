@@ -8,12 +8,13 @@ import auth from '../../firebase.init';
 const MyOrders = () => {
     const navigate = useNavigate()
     const [orders, setOrders ] = useState([]);
-    const [deletes , setDeletes] = useState();
+    const [deletes , setDeletes] = useState(null);
     const [user] = useAuthState(auth);
-    console.log(deletes);
+    
+    
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:8000/purchase?buyerEmail=${user.email}` ,{
+            fetch(`https://fathomless-escarpment-10744.herokuapp.com/purchase?buyerEmail=${user.email}` ,{
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,19 +33,24 @@ const MyOrders = () => {
         }
 
     }, [user]);
-
-    const handleCencelOrder = id =>{
+    const id= deletes?._id;
+    const handleCencelOrder = () =>{
         
-            const url =`http://localhost:8000/purchase/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-            .then(res => res.json())
-            .then(data => {
-                toast('Your Order is Cenceled');
+        console.log('yes');
+        const url =`https://fathomless-escarpment-10744.herokuapp.com/purchase/${id}`;
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast('Your Order is Cenceled');
 
-                
-            })
+            
+        })
+           
         
     }
    
@@ -71,7 +77,7 @@ const MyOrders = () => {
                                 <td>
                                     <div className="avatar">
                                         <div className="object-scale-down w-full h-16 rounded">
-                                            <img src={p.image} />
+                                            <img src={p?.image} />
                                         </div>
                                     </div>
                                 </td>
@@ -83,21 +89,21 @@ const MyOrders = () => {
                                 </td>
                                 <td>
                                     {/*  */}
-                                    {(p.totalPrice && !p.paid) && <label htmlFor="my-modal-6" class="btn btn-xs btn-error" >Cancel</label>}
-                                    {(p.totalPrice && p.paid) && <button className='btn btn-xs btn-error' disabled>Cancel</button>}
+                                    {(p.totalPrice && !p.paid) && <label onClick={() => setDeletes(p)} htmlFor="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>}
+                
                                 </td>
-                                <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-                            <div class="modal modal-bottom sm:modal-middle">
-                            <div class="modal-box">
-                            <div class="avatar">
-                                <div class="w-24 rounded">
-                                    <img src={p.image} />
-                                </div>
-                                </div>
-                                <h3 class="font-bold text-lg"> Are You sure delete {p.purchaseName} this item!</h3>
-                                <div class="modal-action">
-                                <label for="my-modal-6" class="btn btn-error" onClick={()=>handleCencelOrder(p._id)}>Confirm</label>
-                                <label for="my-modal-6" class="btn bg-blue-600">withdrow</label>
+                                <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+                                    <div className="modal modal-bottom sm:modal-middle">
+                                    <div className="modal-box">
+                                            <div className="avatar">
+                                                <div className="w-24 rounded">
+                                                <img src={deletes?.image} />
+                                                </div>
+                                            </div>
+                                <h3 className="font-bold text-lg"> Are You sure delete {deletes?.purchaseName} this item!</h3>
+                                <div className="modal-action">
+                                <label htmlFor="delete-confirm-modal" className="btn btn-error" onClick={() =>handleCencelOrder()}>Confirm</label>
+                                <label htmlFor="delete-confirm-modal" className="btn bg-blue-600">withdrow</label>
                                 </div>
                             </div>
                         </div>

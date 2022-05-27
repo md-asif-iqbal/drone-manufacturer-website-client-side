@@ -5,7 +5,7 @@ const ReviewDetails = ({reviews , refetch}) => {
     return (
         <div>
             {/* One done */}
-            <div className="bg-white h-44 dark:bg-gray-800 w-full rounded-lg p-4 mb-6 shadow sm:inline-block">
+            <div className="bg-white h-48 dark:bg-gray-800 w-full rounded-lg p-4 mb-6 shadow sm:inline-block">
                 <div className="flex items-start text-left">
                 <div className="flex-shrink-0">
                 <div className="inline-block relative">
@@ -26,7 +26,7 @@ const ReviewDetails = ({reviews , refetch}) => {
                 <span className="text-gray-600 dark:text-gray-200 font-bold">
                 {name}
                 </span>
-                <span className="text-gray-500 dark:text-gray-300  ml-12 text-sm">
+                <span className="text-gray-500 dark:text-gray-300 ml-2 text-sm">
                 2 months ago
                 </span>
                 </p>

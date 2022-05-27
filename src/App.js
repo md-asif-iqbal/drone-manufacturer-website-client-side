@@ -23,6 +23,7 @@ import RequireAdmin from './Pages/LoginSites/RequireAdmin';
 import ManageOrders from './Pages/DashBoard/Admin/ManageOrders';
 import AddProduct from './Pages/DashBoard/Admin/AddProduct';
 import ManageProducts from './Pages/DashBoard/Admin/ManageProducts';
+import Portfolio from './Pages/Portfolio/Portfolio';
 
 
 
@@ -60,6 +61,7 @@ function App() {
           </RequireAdmin>}/>
 
         </Route>
+        <Route path='/portfolio' element={<Portfolio/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>

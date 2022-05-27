@@ -19,21 +19,22 @@ const DashBoard = () => {
             <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
             <ul className="menu p-4 overflow-y-auto w-50 bg-base-200 rounded text-base-content">
                 {/* <!-- Sidebar content here --> */}
+                <li className='font-bold'><Link to="/dashboard">My Profiles</Link></li>
                 {
                     !admin && <>
                     
-                    <li><Link to="/dashboard/myOrders">My Orders</Link></li>
-                    <li><Link to="/dashboard/addReviews">Add a Reviews</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/myOrders">My Orders</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/addReviews">Add a Reviews</Link></li>
                     </>
                 }
-                <li><Link to="/dashboard">My Profiles</Link></li>
+                
                 {/* admin role only */}
                 {
                     admin && <>
-                    <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
-                    <li><Link to="/dashboard/manageOrder">Manage All Orders</Link></li>
-                    <li><Link to="/dashboard/addProduct">Add A Product</Link></li>
-                    <li><Link to="/dashboard/manageProducts">Manage Products</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/manageOrder">Manage All Orders</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/addProduct">Add A Product</Link></li>
+                    <li className='font-bold'><Link to="/dashboard/manageProducts">Manage Products</Link></li>
                 
                     </>
                 }

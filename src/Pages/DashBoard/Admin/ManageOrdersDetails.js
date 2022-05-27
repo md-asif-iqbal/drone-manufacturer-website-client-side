@@ -6,7 +6,7 @@ const ManageOrdersDetails = ({ orders, refetch ,index }) => {
     console.log(status);
     const handleShipped = id =>{
         console.log(id);
-        const url =`http://localhost:8000/allorders/${id}`;
+        const url =`https://fathomless-escarpment-10744.herokuapp.com/allorders/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

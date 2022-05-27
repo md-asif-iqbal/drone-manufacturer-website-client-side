@@ -37,7 +37,7 @@ const Purchase = () => {
             totalPrice:prices
         }
         // console.log(purchase);
-        fetch('http://localhost:8000/purchase', {
+        fetch('https://fathomless-escarpment-10744.herokuapp.com/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const Purchase = () => {
             })
           
             // console.log(newStock);
-    //         const url = `http://localhost:8000/parts/${id}`
+    //         const url = `https://fathomless-escarpment-10744.herokuapp.com/parts/${id}`
     //         fetch(url , {
     //             method: 'PUT',
     //             headers: {

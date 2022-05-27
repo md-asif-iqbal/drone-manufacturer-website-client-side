@@ -37,7 +37,7 @@ const MyProfiles = () => {
                     location: data.location,
                     img: img
                 }
-                fetch(`http://localhost:8000/users/${email}`, {
+                fetch(`https://fathomless-escarpment-10744.herokuapp.com/users/${email}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json',
@@ -65,7 +65,7 @@ const MyProfiles = () => {
     const [man, setMan ] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:8000/users?email=${user.email}` ,{
+            fetch(`https://fathomless-escarpment-10744.herokuapp.com/users?email=${user.email}` ,{
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -91,33 +91,100 @@ console.log(man);
     return (
         
         <div >
-            <h1>This is My Profile</h1>
+            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 px-3'>
-            <div className="card w-full bg-base-100 shadow-xl mb-5">
-                <figure className="px-10 pt-10">
-                    <div className="avatar placeholder">
-                        {
-                            man.image?
-                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={man.image} />
-                        </div> :
-                        <div className="bg-neutral-focus text-neutral-content ring ring-primary ring-offset-base-100 rounded-full w-24">
-                            <span className="text-3xl font-bold">{name.length<50?user.displayName.slice(0,1):user.displayName}</span>
-                        </div>
-                        }
-                    </div>
-                </figure>
-                <div className="card-body items-center text-center">
-                    <h2 className="card-title">{user.displayName}</h2>
-                    <p>{user.email}</p>
-                    <p>{man.number}</p>
-                    <p>{man.education}</p>
-                    <p> {man.location}</p>
-                    <div className="card-actions">
-                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Edit Profile</label>
-                    </div>
+            
+
+            <div class="w-full mt-10 mx-auto max-w-xl rounded-lg bg-white dark:bg-gray-800 shadow-lg px-5 py-4 text-gray-800 dark:text-gray-50">
+                <div class="w-full pt-1 text-center -mt-16 mx-auto">
+                    <a href="#" class="block relative">
+                        <img alt="profil" src={man.image} class="mx-auto object-cover rounded-full h-20 w-20 "/>
+                    </a>
                 </div>
+                <div class="w-full">
+                    <div class="text-center mb-6">
+                        <p class="text-gray-800 dark:text-white text-xl font-medium">
+                        {user.displayName}
+                        </p>
+                        <p class="text-gray-400 text-xs">
+                            who i am?
+                        </p>
+                    </div>
+                    <div class="rounded-lg bg-pink-100 dark:bg-white p-2 w-full mb-4">
+                        <div class=" text-xm  text-gray-400 dark:text-black">
+                        <h1 className='font-bold text-2xl'>About</h1>
+                            <div class="divider"></div> 
+                            <div className='flex   mx-5'>
+                                <div>
+                                    <p class="font-bold">
+                                    Email: 
+                                    </p>
+                                </div>
+                                <div className='mx-16'>
+                                    <span class="  text-black dark:text-indigo-500 font-bold">
+                                    {user.email}
+                                    </span>
+                                </div>
+                            </div>
+                            {
+                                man.number&&<div className='flex  items-start mx-5'>
+                                <div>
+                                    <p class="font-bold">
+                                    Number: 
+                                    </p>
+                                </div>
+                                <div className='mx-11'>
+                                    <span class=" text-left text-black dark:text-indigo-500 font-bold ">
+                                    {man.number}
+                                    </span>
+                                </div>
+                            </div>
+                            }
+                            {
+                                man.education&&<div className='flex  items-start mx-5'>
+                                <div>
+                                    <p class="font-bold">
+                                    Education: 
+                                    </p>
+                                </div>
+                                <div className='mx-7'>
+                                    <span class=" text-left text-black dark:text-indigo-500 font-bold ">
+                                    {man.education}
+                                    </span>
+                                </div>
+                            </div>
+                            }
+                            
+                            {
+                                man.location&&<div className='flex  items-start mx-5'>
+                                <div>
+                                    <p class="font-bold">
+                                    Location: 
+                                    </p>
+                                </div>
+                                <div className='mx-10'>
+                                    <span class=" text-left  text-black dark:text-indigo-500 font-bold ">
+                                    {man.location}
+                                    </span>
+                                </div>
+                            </div>
+                            }
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <label htmlFor="my-drawer-4" type="button" class="py-3 mt-10 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        Edit Profile
+                        </label>
             </div>
+
+
+
+
+
+
+            {/* here another section */}
             <div className="drawer bg-base-100">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle bg-base-100" /> 
                 <div className="drawer-side">

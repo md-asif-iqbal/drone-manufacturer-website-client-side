@@ -29,7 +29,7 @@ const AddReviews = () => {
                     review: data.review,
                     img: img
                 }
-                fetch('http://localhost:8000/review', {
+                fetch('https://fathomless-escarpment-10744.herokuapp.com/review', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

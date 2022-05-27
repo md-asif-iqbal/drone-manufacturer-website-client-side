@@ -4,7 +4,7 @@ import Loading from '../../Shared/Loading/Loading';
 import ManageOrdersDetails from './ManageOrdersDetails';
 
 const ManageOrders = () => {
-    const url = `http://localhost:8000/allorders`;
+    const url = `https://fathomless-escarpment-10744.herokuapp.com/allorders`;
 
     const { data: allOrders, isLoading , refetch } = useQuery(['allorders'], () => fetch(url, {
         method: 'GET',

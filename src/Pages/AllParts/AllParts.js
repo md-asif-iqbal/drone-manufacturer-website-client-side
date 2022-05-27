@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import AllPartsDetails from './AllPartsDetails';
 
 const AllParts = () => {
-    const url = `http://localhost:8000/parts`;
+    const url = `https://fathomless-escarpment-10744.herokuapp.com/parts`;
     const { data: allParts, isLoading , refetch } = useQuery(['allparts'], () => fetch(url, {
         method: 'GET',
         headers: {
@@ -15,29 +15,17 @@ const AllParts = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
+
             <div className="carousel w-full">
-  <div id="item1" className="carousel-item w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-3 ">
-  {allParts.slice(0,8).map(part => <AllPartsDetails 
+  <div className="carousel-item w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-3 ">
+  {allParts.map(part => <AllPartsDetails 
                     key={part._id}
                     part = {part}
                     refetch={refetch}>
                     </AllPartsDetails>
                     )}
   </div> 
-  <div id="item2" className="carousel-item w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3  ">
-  {allParts.slice(8,15).map(part => <AllPartsDetails 
-                    key={part._id}
-                    part = {part}
-                    refetch={refetch}>
-                    </AllPartsDetails>
-                    )}
-  </div> 
-</div> 
-<div className="flex justify-center w-full py-2 gap-5">
-  <a href="#item1" className="btn btn-xs">1</a> 
-  <a href="#item2" className="btn btn-xs">2</a> 
-</div>
+ 
         </div>
     );
 };

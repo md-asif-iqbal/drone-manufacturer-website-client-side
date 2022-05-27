@@ -5,7 +5,7 @@ import Loading from '../../Shared/Loading/Loading';
 import PartsDetail from './PartsDetail';
 
 const Parts = () => {
-    const url = `http://localhost:8000/parts`;
+    const url = `https://fathomless-escarpment-10744.herokuapp.com/parts`;
     const { data: parts, isLoading , refetch } = useQuery(['parts'], () => fetch(url, {
         method: 'GET',
         headers: {
