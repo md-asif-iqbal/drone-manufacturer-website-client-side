@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 );
 const Payments = () => {
   const { id } = useParams();
-  const url = `https://drone-parts-server-side.vercel.app/purchase/${id}`;
+  const url = `https://drone-manufacturer-website-server-side.onrender.com/purchase/${id}`;
 
   const { data: order, isLoading } = useQuery(["booking", id], () =>
     fetch(url, {

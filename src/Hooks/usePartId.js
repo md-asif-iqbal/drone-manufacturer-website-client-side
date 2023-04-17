@@ -5,7 +5,7 @@ const usePartId = (id) => {
   const [products, setProducts] = useState({});
 
   useEffect(() => {
-    const url = `https://drone-parts-server-side.vercel.app/parts/${id}`;
+    const url = `https://drone-manufacturer-website-server-side.onrender.com/parts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));

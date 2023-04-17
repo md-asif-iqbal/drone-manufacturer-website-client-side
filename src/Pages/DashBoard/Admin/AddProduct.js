@@ -36,14 +36,17 @@ const AddProduct = () => {
             stock: stock,
             price: price,
           };
-          fetch("https://drone-parts-server-side.vercel.app/parts", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(product),
-          })
+          fetch(
+            "https://drone-manufacturer-website-server-side.onrender.com/parts",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(product),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);

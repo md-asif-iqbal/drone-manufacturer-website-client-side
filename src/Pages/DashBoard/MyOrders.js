@@ -13,7 +13,7 @@ const MyOrders = () => {
   const [deletes, setDeletes] = useState(null);
   const [user] = useAuthState(auth);
 
-  const url = `https://drone-parts-server-side.vercel.app/purchase?buyerEmail=${user.email}`;
+  const url = `https://drone-manufacturer-website-server-side.onrender.com/purchase?buyerEmail=${user.email}`;
   const {
     data: orders,
     isLoading,
@@ -41,7 +41,7 @@ const MyOrders = () => {
   const id = deletes?._id;
   const handleCencelOrder = () => {
     console.log("yes");
-    const url = `https://drone-parts-server-side.vercel.app/purchase/${id}`;
+    const url = `https://drone-manufacturer-website-server-side.onrender.com/purchase/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

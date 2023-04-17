@@ -6,7 +6,7 @@ const ManageOrdersDetails = ({ orders, refetch, index }) => {
   console.log(status);
   const handleShipped = (id) => {
     console.log(id);
-    const url = `https://drone-parts-server-side.vercel.app/allorders/${id}`;
+    const url = `https://drone-manufacturer-website-server-side.onrender.com/allorders/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -41,13 +41,16 @@ const Purchase = () => {
       totalPrice: prices,
     };
     // console.log(purchase);
-    fetch("https://drone-parts-server-side.vercel.app/purchase", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(purchase),
-    })
+    fetch(
+      "https://drone-manufacturer-website-server-side.onrender.com/purchase",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(purchase),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -59,7 +62,7 @@ const Purchase = () => {
       });
 
     // console.log(newStock);
-    //         const url = `https://drone-parts-server-side.vercel.app/parts/${id}`
+    //         const url = `https://drone-manufacturer-website-server-side.onrender.com/parts/${id}`
     //         fetch(url , {
     //             method: 'PUT',
     //             headers: {

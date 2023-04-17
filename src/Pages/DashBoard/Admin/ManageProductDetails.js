@@ -7,7 +7,7 @@ const ManageProductDetails = ({ products, refetch, index }) => {
   const { _id, img, Name, price, stock } = products;
   const id = deletes?._id;
   const handleDelete = () => {
-    const url = `https://drone-parts-server-side.vercel.app/parts/${id}`;
+    const url = `https://drone-manufacturer-website-server-side.onrender.com/parts/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

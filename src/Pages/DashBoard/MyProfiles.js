@@ -41,14 +41,17 @@ const MyProfiles = () => {
             location: data.location,
             img: img,
           };
-          fetch(`https://drone-parts-server-side.vercel.app/users/${email}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(profile),
-          })
+          fetch(
+            `https://drone-manufacturer-website-server-side.onrender.com/users/${email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(profile),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.modifiedCount > 0) {
@@ -66,7 +69,7 @@ const MyProfiles = () => {
   useEffect(() => {
     if (user) {
       fetch(
-        `https://drone-parts-server-side.vercel.app/users?email=${user.email}`,
+        `https://drone-manufacturer-website-server-side.onrender.com/users?email=${user.email}`,
         {
           method: "GET",
           headers: {

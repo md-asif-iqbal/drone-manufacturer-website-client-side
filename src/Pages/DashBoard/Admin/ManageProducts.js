@@ -6,7 +6,7 @@ import ManageProductDetails from "./ManageProductDetails";
 
 const ManageProducts = () => {
   const [deletes, setDeletes] = useState(null);
-  const url = `https://drone-parts-server-side.vercel.app/parts`;
+  const url = `https://drone-manufacturer-website-server-side.onrender.com/parts`;
 
   const {
     data: allparts,
@@ -27,7 +27,7 @@ const ManageProducts = () => {
   // delete------
   const id = deletes?._id;
   const handleDelete = () => {
-    const url = `https://drone-parts-server-side.vercel.app/parts/${id}`;
+    const url = `https://drone-manufacturer-website-server-side.onrender.com/parts/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

@@ -9,9 +9,9 @@ const Rating = () => {
     isLoading,
     refetch,
   } = useQuery(["review"], () =>
-    fetch(`https://drone-parts-server-side.vercel.app/reviews`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://drone-manufacturer-website-server-side.onrender.com/reviews`
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;

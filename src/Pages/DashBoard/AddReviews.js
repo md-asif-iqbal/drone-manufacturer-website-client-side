@@ -34,14 +34,17 @@ const AddReviews = () => {
             review: data.review,
             img: img,
           };
-          fetch("https://drone-parts-server-side.vercel.app/review", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(reviews),
-          })
+          fetch(
+            "https://drone-manufacturer-website-server-side.onrender.com/review",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(reviews),
+            }
+          )
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {

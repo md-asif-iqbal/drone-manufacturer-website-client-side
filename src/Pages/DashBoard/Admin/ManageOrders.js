@@ -4,7 +4,7 @@ import Loading from "../../Shared/Loading/Loading";
 import ManageOrdersDetails from "./ManageOrdersDetails";
 
 const ManageOrders = () => {
-  const url = `https://drone-parts-server-side.vercel.app/allorders`;
+  const url = `https://drone-manufacturer-website-server-side.onrender.com/allorders`;
 
   const {
     data: allOrders,
