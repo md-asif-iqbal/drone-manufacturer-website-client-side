@@ -38,12 +38,24 @@ const SignUp = () => {
     }
 
     const onSubmit = async data => {
-        await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName: data.name });
-        console.log(data);
-        
-        navigate('/');
-    }
+        try {
+          // Create user with email and password
+          await createUserWithEmailAndPassword(data.email, data.password);
+      
+          // Update user profile with display name
+          await updateProfile({ displayName: data.name });
+      
+          // Log the data
+          console.log(data);
+      
+          // Navigate to the desired page
+          navigate('/');
+        } catch (error) {
+          // Handle errors appropriately
+          console.error('Error during user registration:', error.message);
+          // You may want to show an error message to the user or handle the error in some way
+        }
+      };
     return (
         <div>
             <div className='flex  justify-center items-center'>
