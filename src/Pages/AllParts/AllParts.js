@@ -4,7 +4,7 @@ import Loading from "../Shared/Loading/Loading";
 import AllPartsDetails from "./AllPartsDetails";
 
 const AllParts = () => {
-  const url = `https://drone-manufacturer-website-server-side.onrender.com/parts`;
+  const url = `https://drone-manufacturer-website.vercel.app/parts`;
   const {
     data: allParts,
     isLoading,

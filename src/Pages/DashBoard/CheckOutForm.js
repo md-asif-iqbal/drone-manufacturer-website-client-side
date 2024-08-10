@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     fetch(
-      "https://drone-manufacturer-website-server-side.onrender.com/create-payment-intent",
+      "https://drone-manufacturer-website.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -79,7 +79,7 @@ const CheckoutForm = ({ order }) => {
         transactionId: paymentIntent.id,
       };
       fetch(
-        `https://drone-manufacturer-website-server-side.onrender.com/purchase/${_id}`,
+        `https://drone-manufacturer-website.vercel.app/purchase/${_id}`,
         {
           method: "PATCH",
           headers: {

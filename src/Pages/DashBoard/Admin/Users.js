@@ -9,7 +9,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://drone-manufacturer-website-server-side.onrender.com/user", {
+    fetch("https://drone-manufacturer-website.vercel.app/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

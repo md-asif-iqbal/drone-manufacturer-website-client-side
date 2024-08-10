@@ -15,18 +15,18 @@ const NavBar = () => {
  }
     const menuItems = <>
   
-    <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/" >Home</Link></li>
-    <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/allParts" >Parts</Link></li>
-    <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/blogs">Blogs</Link></li>
-    <li className=' font-medium text-gray-500 hover:text-gray-900 '><Link  to="/portfolio" >Portfolio</Link></li>
+    <li className=' '><Link to="/" >Home</Link></li>
+    <li className=' '><Link to="/allParts" >Parts</Link></li>
+    <li className=' '><Link to="/blogs">Blogs</Link></li>
+    <li className='  '><Link  to="/portfolio" >Portfolio</Link></li>
     {
-        user && <li className=' font-medium text-gray-500 hover:text-gray-900'><Link to="/dashboard">Dashboard</Link></li>
+        user && <li className=' '><Link to="/dashboard">Dashboard</Link></li>
     }
         <li>{user ? <button className= " btn btn-ghost font-medium text-gray-500 hover:bg-teal-300  hover:text-gray-700 hover:font-bold" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
     </>
     
     return (
-        <div className="navbar   bg-white relative">
+        <div className="navbar   bg-white fixed z-10 bg-opacity-60 text-black font-bold">
               <div className="navbar-start">
                 <div className="dropdown">
                   <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const NavBar = () => {
                   {menuItems}
                   </ul>
                 </div>
-                <img alt="Workflow" className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/><span className='ml-5 font-medium'>DRONE Manufacture</span>
+                <img alt="Workflow" className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"/><span className='ml-5 font-medium'>DRONE Manufacture Website</span>
               </div>
               <div className="navbar-center ">
               

@@ -42,7 +42,7 @@ const Purchase = () => {
     };
     // console.log(purchase);
     fetch(
-      "https://drone-manufacturer-website-server-side.onrender.com/purchase",
+      "https://drone-manufacturer-website.vercel.app/purchase",
       {
         method: "POST",
         headers: {
@@ -62,7 +62,7 @@ const Purchase = () => {
       });
 
     // console.log(newStock);
-    //         const url = `https://drone-manufacturer-website-server-side.onrender.com/parts/${id}`
+    //         const url = `https://drone-manufacturer-website.vercel.app/parts/${id}`
     //         fetch(url , {
     //             method: 'PUT',
     //             headers: {

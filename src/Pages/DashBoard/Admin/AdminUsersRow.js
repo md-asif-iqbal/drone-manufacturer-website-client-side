@@ -5,7 +5,7 @@ const AdminUsersRow = ({ user, refetch }) => {
   const { email, role } = user;
   const makeAdmin = () => {
     fetch(
-      `https://drone-manufacturer-website-server-side.onrender.com/user/admin/${email}`,
+      `https://drone-manufacturer-website.vercel.app/user/admin/${email}`,
       {
         method: "PUT",
         headers: {

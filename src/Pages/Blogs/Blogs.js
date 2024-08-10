@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
-            <h2 className=" w-full text-3xl mt-5 font-extrabold">
+        <div className='h-screen md:py-[10%]'>
+            <h2 className=" w-full text-3xl mt-5  font-extrabold">
                     Frequently-Five questions here
                 </h2>
             

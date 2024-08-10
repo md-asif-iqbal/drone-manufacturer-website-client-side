@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     if (email) {
       fetch(
-        `https://drone-manufacturer-website-server-side.onrender.com/admin/${email}`,
+        `https://drone-manufacturer-website.vercel.app/admin/${email}`,
         {
           method: "GET",
           headers: {

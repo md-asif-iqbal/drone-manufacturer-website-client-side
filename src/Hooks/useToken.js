@@ -10,7 +10,7 @@ const useToken = (user) => {
     console.log(currentUser);
     if (email) {
       fetch(
-        `https://drone-manufacturer-website-server-side.onrender.com/user/${email}`,
+        `https://drone-manufacturer-website.vercel.app/user/${email}`,
         {
           method: "PUT",
           headers: {

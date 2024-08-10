@@ -37,7 +37,7 @@ const AddProduct = () => {
             price: price,
           };
           fetch(
-            "https://drone-manufacturer-website-server-side.onrender.com/parts",
+            "https://drone-manufacturer-website.vercel.app/parts",
             {
               method: "POST",
               headers: {

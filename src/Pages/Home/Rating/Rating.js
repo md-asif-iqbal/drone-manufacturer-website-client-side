@@ -10,7 +10,7 @@ const Rating = () => {
     refetch,
   } = useQuery(["review"], () =>
     fetch(
-      `https://drone-manufacturer-website-server-side.onrender.com/reviews`
+      `https://drone-manufacturer-website.vercel.app/reviews`
     ).then((res) => res.json())
   );
   if (isLoading) {

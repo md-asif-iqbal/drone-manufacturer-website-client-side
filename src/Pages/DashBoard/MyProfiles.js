@@ -42,7 +42,7 @@ const MyProfiles = () => {
             img: img,
           };
           fetch(
-            `https://drone-manufacturer-website-server-side.onrender.com/users/${email}`,
+            `https://drone-manufacturer-website.vercel.app/users/${email}`,
             {
               method: "PUT",
               headers: {
@@ -69,7 +69,7 @@ const MyProfiles = () => {
   useEffect(() => {
     if (user) {
       fetch(
-        `https://drone-manufacturer-website-server-side.onrender.com/users?email=${user.email}`,
+        `https://drone-manufacturer-website.vercel.app/users?email=${user.email}`,
         {
           method: "GET",
           headers: {

@@ -35,7 +35,7 @@ const AddReviews = () => {
             img: img,
           };
           fetch(
-            "https://drone-manufacturer-website-server-side.onrender.com/review",
+            "https://drone-manufacturer-website.vercel.app/review",
             {
               method: "POST",
               headers: {
