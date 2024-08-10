@@ -38,7 +38,7 @@ const ManageOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {allOrders.map((orders, index) => (
+            {allOrders?.map((orders, index) => (
               <ManageOrdersDetails
                 key={orders._id}
                 orders={orders}

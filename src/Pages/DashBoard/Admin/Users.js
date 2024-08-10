@@ -34,7 +34,7 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users?.map((user) => (
               <AdminUsersRow
                 key={user._id}
                 user={user}

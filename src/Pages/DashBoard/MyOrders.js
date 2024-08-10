@@ -72,7 +72,7 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((p, index) => (
+            {orders?.map((p, index) => (
               <tr key={p._id}>
                 <th>{index + 1}</th>
                 <td>

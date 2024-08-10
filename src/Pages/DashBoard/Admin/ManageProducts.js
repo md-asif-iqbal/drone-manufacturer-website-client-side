@@ -58,7 +58,7 @@ const ManageProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {allparts.map((products, index) => (
+              {allparts?.map((products, index) => (
                 <tr key={products._id}>
                   <th>{index + 1}</th>
                   <td>

@@ -22,7 +22,7 @@ const Rating = () => {
         Review Our Customer{" "}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 ">
-        {review.map((reviews) => (
+        {review?.map((reviews) => (
           <ReviewDetails
             key={reviews._id}
             reviews={reviews}

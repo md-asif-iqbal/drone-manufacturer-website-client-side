@@ -51,7 +51,7 @@ const AddReviews = () => {
                 toast.success("Thanks For Reviews");
                 reset();
               } else {
-                toast.error("Sorry your Review bot currect");
+                toast.error("Sorry your Review not currect");
               }
             });
         }
